@@ -13,10 +13,6 @@ def contact(request, response):
 app.register('/index', home)
 app.register('/contact', contact)
 
-for path, handler in app.routes.items():
-
-    app.add_route(path, handler)
-
 if __name__ == '__main__':
 
     app.runner(app, 5000)

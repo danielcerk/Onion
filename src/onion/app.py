@@ -7,12 +7,6 @@ class Onion(Route, Run):
 
         super().__init__()
 
-    def add_route(self, path, handler):
-
-        self.routes[path] = handler
-
-        return handler
-
     def __call__(self, environ, start_response):
 
         path = environ.get('PATH_INFO', '/')
