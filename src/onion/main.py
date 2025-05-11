@@ -2,17 +2,22 @@ from app import Onion
 
 app = Onion()
 
-def home(request, response):
+def welcome(request):
 
-    response.text = 'Hello, World!'
+    return '<h2>Olá, tudo bem?</h2>'
 
-def contact(request, response):
+def home(request, name):
 
-    response.text = 'Email: danielcerqueira2346@gmail.com'
+    return f'<h1>Olá, {name}</h1>'
 
-app.register('/index', home)
+def contact(request):
+
+    return 'Email: danielcerqueira2346@gmail.com'
+
+app.register('/', welcome)
+app.register('/index/<name>', home)
 app.register('/contact', contact)
 
 if __name__ == '__main__':
 
-    app.runner(app, 5000)
+    app.runner(5000)

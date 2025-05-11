@@ -1,18 +1,22 @@
 from wsgiref.simple_server import make_server
+from wsgiref.validate import validator
 
 class Run:
 
     def __init__(self):
 
-        self.application = None
-        self.port = None
+        pass
 
-    def runner(self, application, port):
+    def runner(self, application):
 
-        port = port if port else 8000
+        validate_app = validator(application)
 
-        print(f'Run: http://127.0.0.1:{port}')
+        def start(port=8000):
 
-        with make_server('', port, application) as server:
+            print(f'Running on: http://127.0.0.1:{port} | ( Press CTRL+C to quit )')
 
-            server.serve_forever()
+            with make_server('127.0.0.1', port, validate_app) as server:
+
+                server.serve_forever()
+                
+        return start
