@@ -3,9 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-.env
-firebase-config.json
-client_secret_570878019129-fecb776rahbtrauatk8a0dh2sm784grl.apps.googleusercontent.com.json
+requisitos.txt
 
 # C extensions
 *.so
